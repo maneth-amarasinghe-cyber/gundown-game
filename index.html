@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gundown — Hidden Object Challenge</title>
+<meta name="description" content="Gundown is a simple hidden-object grid game. Find every hidden target before you run out of guesses.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Gundown home">
+    <span class="brand-mark">✦</span>
+    <span>GUNDOWN</span>
+  </a>
+  <button class="ghost-btn" id="helpBtn">How to Play</button>
+</header>
+
+<main class="app">
+  <section class="hero">
+    <div class="eyebrow">HIDDEN OBJECT CHALLENGE</div>
+    <h1>Find the hidden targets.</h1>
+    <p>Choose your grid, pick your targets, and test your luck. Can you find them all?</p>
+  </section>
+
+  <section class="game-card">
+    <div class="setup-panel" id="setupPanel">
+      <div class="section-title">
+        <div>
+          <h2>Start a New Game</h2>
+          <p>Set your difficulty before the hunt begins.</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label>
+          <span>Grid Size</span>
+          <select id="gridSize">
+            <option value="3x3">3 × 3</option>
+            <option value="3x4">3 × 4</option>
+            <option value="4x4" selected>4 × 4</option>
+            <option value="4x5">4 × 5</option>
+            <option value="5x5">5 × 5</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Hidden Targets</span>
+          <select id="hiddenCount"></select>
+        </label>
+
+        <label class="toggle-row">
+          <span>Practice / Reveal Mode</span>
+          <button class="toggle" id="revealToggle" type="button" aria-pressed="false">
+            <span></span>
+          </button>
+        </label>
+      </div>
+
+      <button class="primary-btn" id="startBtn">Start Game <span>→</span></button>
+    </div>
+
+    <div class="game-panel hidden" id="gamePanel">
+      <div class="game-head">
+        <div>
+          <div class="eyebrow">GAME IN PROGRESS</div>
+          <h2 id="gameTitle">4 × 4 Grid</h2>
+        </div>
+        <button class="secondary-btn" id="restartBtn">New Game</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><span>Targets</span><strong id="targetStat">0</strong></div>
+        <div class="stat"><span>Found</span><strong id="foundStat">0</strong></div>
+        <div class="stat"><span>Guesses</span><strong id="guessStat">0 / 0</strong></div>
+        <div class="stat"><span>Accuracy</span><strong id="accuracyStat">0%</strong></div>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Hunt Progress</span><span id="progressText">0%</span></div>
+        <div class="progress"><div id="progressBar"></div></div>
+      </div>
+
+      <div class="game-layout">
+        <div class="board-wrap">
+          <div class="board" id="board" aria-label="Game grid"></div>
+          <div class="legend">
+            <span><i class="dot normal"></i> Available</span>
+            <span><i class="dot found"></i> Found</span>
+            <span><i class="dot missed"></i> Missed target</span>
+          </div>
+        </div>
+
+        <aside class="side-panel">
+          <div class="message" id="message">
+            <strong>Ready?</strong>
+            <span>Click a cell to search for a hidden target.</span>
+          </div>
+          <div class="target-box">
+            <span>Targets remaining</span>
+            <strong id="remaining">0</strong>
+          </div>
+          <button class="primary-btn full" id="finishBtn">Reveal Results</button>
+        </aside>
+      </div>
+
+      <div class="result-panel hidden" id="resultPanel">
+        <div class="result-icon" id="resultIcon">✦</div>
+        <div>
+          <div class="eyebrow">FINAL RESULT</div>
+          <h2 id="resultTitle">Game Complete</h2>
+          <p id="resultSummary"></p>
+        </div>
+        <div class="result-actions">
+          <button class="primary-btn" id="playAgainBtn">Play Again <span>→</span></button>
+          <button class="secondary-btn" id="downloadBtn">Save Result</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-section" id="howSection">
+    <div class="eyebrow">HOW IT WORKS</div>
+    <h2>Simple rules. One objective.</h2>
+    <div class="rules">
+      <article><span>01</span><h3>Choose your grid</h3><p>Pick a grid from 3×3 up to 5×5.</p></article>
+      <article><span>02</span><h3>Find the targets</h3><p>Hidden targets are randomly placed every game.</p></article>
+      <article><span>03</span><h3>Track your score</h3><p>Your accuracy and progress update as you play.</p></article>
+    </div>
+  </section>
+</main>
+
+<footer>Gundown Web Game · Built from the original Python game concept</footer>
+<div class="modal hidden" id="helpModal">
+  <div class="modal-card">
+    <button class="close" id="closeHelp">×</button>
+    <div class="eyebrow">HOW TO PLAY</div>
+    <h2>Find every hidden target.</h2>
+    <p>Targets are randomly hidden in the numbered grid. Click different cells to make guesses. A successful guess becomes <b>✓ Found</b>. When you finish, missed targets are revealed.</p>
+    <p>The browser version keeps the original Gundown rules: grid sizes from 3×3 to 5×5, and between 2 and half of the total cells as hidden targets.</p>
+    <button class="primary-btn full" id="closeHelp2">Got it</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
