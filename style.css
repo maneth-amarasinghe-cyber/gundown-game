@@ -10,23 +10,20 @@ button{cursor:pointer}
 .ghost-btn,.secondary-btn{background:transparent;color:#dfe5ef;border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:700}
 .ghost-btn:hover,.secondary-btn:hover{border-color:#536079;background:#151c28}
 
-/* Creator Badge Style */
-.creator-badge {
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    font-family: inherit;
+.site-footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #667185;
     font-size: 13px;
-    color: #94a3b8;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
-    letter-spacing: 0.5px;
-    z-index: 10;
 }
-.creator-badge span {
+
+.footer-creator {
+    margin-top: 8px;
+    color: #94a3b8;
+}
+
+.footer-creator span {
     color: #ff773d;
     font-weight: 600;
 }
